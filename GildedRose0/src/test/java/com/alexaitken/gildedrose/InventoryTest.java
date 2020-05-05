@@ -2,7 +2,6 @@ package com.alexaitken.gildedrose;
 
 import static org.junit.Assert.*;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.alexaitken.gildedrose.Inventory;
