@@ -135,44 +135,201 @@ public class InventoryTest {
         assertEquals(50, backStagePass5DaysAway.getQuality());
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Pruebas realizadas para llegar a cobertura 100
-    @Ignore
+    // P2
     @Test
-    public void aged_brie_sellin_less_than_0_quality_less_than_50() {
-        Item agedBrie = new Item("Aged Brie", -1, 48);
-        Inventory inventory = createInventory(agedBrie);
+    public void p2() {
+        Item given = new Item("Aged Brie", -8, 25);
+        Inventory inventory = createInventory(given);
         inventory.updateQuality();
-        assertEquals(50, agedBrie.getQuality());
+        Item expected = new Item("Aged Brie", -9, 27);
+        assertItem(expected, given);
     }
 
-    @Ignore
+    // P2b
+    @Test
+    public void p2b() {
+        Item given = new Item("Aged Brie", -8, 50);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        Item expected = new Item("Aged Brie", -9, 50);
+        assertItem(expected, given);
+    }
+
+    // P2c
+    @Test
+    public void p2c() {
+        Item given = new Item("Aged Brie", -8, 49);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        Item expected = new Item("Aged Brie", -9, 50);
+        assertItem(expected, given);
+    }
+
+    // P2d
+    @Test
+    public void p2d() {
+        Item given = new Item("Aged Brie", 0, 25);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        Item expected = new Item("Aged Brie", -1, 27);
+        assertItem(expected, given);
+    }
+
+    // P5b
+    @Test
+    public void p5b() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 50);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 9, 50);
+        assertItem(expected, given);
+    }
+
+    // P5d
+    @Test
+    public void p5d() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 6, 25);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 27);
+        assertItem(expected, given);
+    }
+
+    // P5e
+    @Test
+    public void p5e() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 6, 50);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50);
+        assertItem(expected, given);
+    }
+
+    // P5e
+    @Test
+    public void p5f() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 6, 49);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50);
+        assertItem(expected, given);
+    }
+
+    // P6b
+    @Test
+    public void p6b() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50);
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 4, 50);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+    // P6c
+    @Test
+    public void p6c() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49);
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 4, 50);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+    // P6e
+    @Test
+    public void p6e() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 25);
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 28);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+    // P6f
+    @Test
+    public void p6f() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 50);
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 50);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+    // P6g
+    @Test
+    public void p6g() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 49);
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 50);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+    // P6h
+    @Test
+    public void p6h() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 48);
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 50);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+
+    // P8
+    @Test
+    public void p8() {
+        Item given = new Item("Backstage passes to a TAFKAL80ETC concert", -8, 0);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        Item expected = new Item("Backstage passes to a TAFKAL80ETC concert", -9, 0);
+        assertItem(expected, given);
+    }
+
+    // P10b
+    @Test
+    public void p10b() {
+        Item given = new Item("+5 Dexterity Vest", -8, 1);
+        Item expected = new Item("+5 Dexterity Vest", -9, 0);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+    // P10c
+    @Test
+    public void p10c() {
+        Item given = new Item("+5 Dexterity Vest", -8, 0);
+        Item expected = new Item("+5 Dexterity Vest", -9, 0);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+    // P10d
+    @Test
+    public void p10d() {
+        Item given = new Item("+5 Dexterity Vest", 0, 25);
+        Item expected = new Item("+5 Dexterity Vest", -1, 23);
+        Inventory inventory = createInventory(given);
+        inventory.updateQuality();
+        assertItem(expected,given);
+    }
+
+
+    // Prueba realizada para llegar a 100% cobertura
     @Test
     public void test_setName_Item() {
         Item agedBrie = new Item("Aged Brie", 0, 0);
         agedBrie.setName("Aged Brie cambiado");
+    }
+
+
+
+
+    private void assertItem(Item a, Item b){
+        assertEquals(a.getName(), b.getName());
+        assertEquals(a.getSellIn(), b.getSellIn());
+        assertEquals(a.getQuality(), b.getQuality());
     }
 }
