@@ -1,40 +1,20 @@
 package com.alexaitken.gildedrose;
 
-public class Item {
+public interface Item {
+    int MAX_QUALITY = 50;
+    int SULFURAS_QUALITY = 50;
 
-    private String name;
-    private int sellIn;
+    String getName();
 
-    private int quality;
+    void setName(String name);
 
-    public Item(String name, int sellIn, int quality) {
-        super();
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
-    }
+    int getSellIn();
 
-    public String getName() {
-        return name;
-    }
+    void setSellIn(int sellIn);
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    int getQuality();
 
-    public int getSellIn() {
-        return sellIn;
-    }
+    void setQuality(int quality);
 
-    public void setSellIn(int sellIn) {
-        this.sellIn = sellIn;
-    }
-
-    public int getQuality() {
-        return quality;
-    }
-
-    public void setQuality(int quality) {
-        this.quality = quality;
-    }
+    void updateQuality();
 }
